@@ -4,10 +4,22 @@ unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
+// $CFG->dbtype    = 'pgsql';
+// $CFG->dblibrary = 'native';
+// $CFG->dbhost    = 'localhost';
+// $CFG->dbname    = 'moodle4_1_13';
+// $CFG->dbuser    = 'postgres';
+// $CFG->dbpass    = '1307x2Npk';
+// $CFG->prefix    = 'mdl_';
+// $CFG->dboptions = array (
+//   'dbpersist' => 0,
+//   'dbport' => 5432,
+//   'dbsocket' => '',
+// );
 $CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'moodle4_1_13';
+$CFG->dbhost    = 'moodle.cd2wy4iagdv9.ap-southeast-1.rds.amazonaws.com';
+$CFG->dbname    = 'moodle';
 $CFG->dbuser    = 'postgres';
 $CFG->dbpass    = '1307x2Npk';
 $CFG->prefix    = 'mdl_';
@@ -18,7 +30,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://localhost:8080/moodle4113';
-$CFG->dataroot  = '/opt/homebrew/var/data/moodledata4113';
+$CFG->dataroot  = __DIR__.'/data/moodledata4113';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
