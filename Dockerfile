@@ -1,5 +1,5 @@
 # Use the official Moodle PHP Apache image
-FROM --platform=linux/amd64 moodlehq/moodle-php-apache:7.4
+FROM moodlehq/moodle-php-apache:7.4@sha256:cb3c985b37ba1b7c3769ae22382ca1beb63c25630f49764e7ea6d4c1849aec7f
                                     
 # Install required packages
 RUN apt-get update && \
