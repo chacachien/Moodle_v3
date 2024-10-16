@@ -47,10 +47,3 @@ require_once(__DIR__ . '/lib/setup.php');
 $CFG->cachejs = false;
 // There is no php closing tag in this file,
 // it is intentional because it prevents trailing whitespace problems!
-
-$PAGE->requires->js_call_amd('theme_boost/widget', 'init',[[
-'userId' => $USER->id,
-'courseId' => 3
-//'courseId' => $PAGE->course->id
-// params passed in the module init()
-]]);
