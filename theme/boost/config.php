@@ -30,7 +30,7 @@ global $CFG;
 global $PAGE;
 global $USER;
 
-$CFG->cachejs = false;
+ $CFG->cachejs = false;
 $PAGE->requires->js_call_amd('theme_boost/widget', 'init',[[
 'userId' => $USER->id,
 'courseId' => $PAGE->course->id

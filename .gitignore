@@ -1,0 +1,81 @@
+﻿# Moodle specific files
+config.php
+/admin/cli/cron.php
+/admin/tool/installaddon/cli/
+config-dist.php
+
+# Data directory
+/moodledata/
+/data/
+
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Composer
+composer.phar
+/composer.lock
+
+# npm
+package-lock.json
+
+# Cache and temporary files
+/cache/
+/temp/
+/localcache/
+*.php[345]
+*.cache
+
+# Log files
+/log/
+*.log
+error_log
+access_log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+*.orig
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build and deployment files
+/build/
+/dist/
+.env
+.env.local
+.env.*.local
+
+# Test files
+/phpunit.xml
+/.phpunit.result.cache
+/tests/behat/behat.yml
+
+# Upgrade files
+/upgrade.txt
+/install.php
+
+# Backup files
+*~
+*.bak
+*.swp
+*.zip
+*.tar.gz
+
+# Development tools
+.php_cs.cache
+.php_cs
+.phpcs.xml
+.phpunit.result.cache

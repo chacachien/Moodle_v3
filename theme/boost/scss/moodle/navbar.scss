@@ -10,6 +10,8 @@
     border-bottom: $gray-300 1px solid;
     align-items: stretch;
     height: $navbar-height + 1px;
+    background-color: $primary !important;
+    color: white;
 
     .navbar-brand {
         .logo {
@@ -19,8 +21,10 @@
     .nav-link {
         height: 100%;
         display: flex;
-        align-items: center;
+        align-items: center !important;
         white-space: nowrap;
+        text-align: center;
+        color: white !important;
     }
     .divider {
         width: 1px;
@@ -172,4 +176,64 @@
 // Make navbar height available for non-sass use.
 :root {
     --navbar-height: #{$navbar-height};
+}
+
+
+.nav-item{
+    min-width: 100px;
+    color: white;
+}
+.primary-navigation {
+    .nav {
+        &.more-nav {
+            .nav-item {
+                a {
+                    // Center text both horizontally and vertically
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+
+                    // Add some padding for better clickability
+                    padding: 8px 16px;
+
+                    // Optional: ensure consistent height
+                    min-height: 100%;
+
+                    // Optional: prevent text wrapping
+                    white-space: nowrap;
+
+                    font-weight: bolder;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 2px;
+                    background-color: $indigo;
+                    transition: all 0.3s ease;
+                    transform: translateX(-50%);
+                }
+
+                &:hover {
+                    background-color: $pink;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                // Optional: Active state
+                &.active {
+                    background-color: $cyan;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

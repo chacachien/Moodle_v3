@@ -48,3 +48,8 @@ $breadcrumb-divider-rtl: "◀" !default;
 @import "moodle/primarynavigation";
 @import "moodle/secondarynavigation";
 @import "moodle/tertiarynavigation";
+
+
+.custom-navbar {
+  background: $body-bg;
+}
