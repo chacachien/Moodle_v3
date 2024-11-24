@@ -100,6 +100,7 @@
                     data-disableactive="true" tabindex="-1"
                 >
                     {{{text}}}
+                    <div class="nav-underline"></div>
                 </a>
                 {{#action_link_actions}}
                     {{> core/actions }}
@@ -113,8 +114,10 @@
                     {{^isactive}}tabindex="-1"{{/isactive}}
                 >
                     {{{text}}}
+                  <div class="nav-underline"></div>
                 </a>
             {{/is_action_link}}
         {{/istablist}}
+
     </li>
 {{/haschildren}}

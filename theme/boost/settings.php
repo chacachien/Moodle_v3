@@ -92,6 +92,101 @@ if ($ADMIN->fulltree) {
     // Must add the page after definiting all the settings!
     $settings->add($page);
 
+    //
+  /*
+  * -----------------------
+  * Frontpage settings tab
+  * -----------------------
+  */
+  $page = new admin_settingpage('theme_boost_frontpage', get_string('frontpagesettings', 'theme_boost'));
+
+
+  // Slideshow.
+  $name = 'theme_boost/slidercount';
+  $title = get_string('slidercount', 'theme_boost');
+  $description = get_string('slidercountdesc', 'theme_boost');
+  $default = 0;
+  $options = array();
+  for ($i = 0; $i < 13; $i++) {
+    $options[$i] = $i;
+  }
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+  $setting->set_updatedcallback('theme_reset_all_caches');
+  $page->add($setting);
+
+  // If we don't have an slide yet, default to the preset.
+  $slidercount = get_config('theme_boost', 'slidercount');
+
+//  if (!$slidercount) {
+//    $slidercount = $default;
+//  }
+
+  if ($slidercount) {
+    for ($sliderindex = 1; $sliderindex <= $slidercount; $sliderindex++) {
+      $fileid = 'sliderimage' . $sliderindex;
+      $name = 'theme_boost/sliderimage' . $sliderindex;
+      $title = get_string('sliderimage', 'theme_boost');
+      $description = get_string('sliderimagedesc', 'theme_boost');
+      $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
+      $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
+      $page->add($setting);
+
+      $name = 'theme_boost/slidertitle' . $sliderindex;
+      $title = get_string('slidertitle', 'theme_boost');
+      $description = get_string('slidertitledesc', 'theme_boost');
+      $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
+      $page->add($setting);
+
+      $name = 'theme_boost/slidercap' . $sliderindex;
+      $title = get_string('slidercaption', 'theme_boost');
+      $description = get_string('slidercaptiondesc', 'theme_boost');
+      $default = '';
+      $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+      $page->add($setting);
+    }
+  }
+
+  $setting = new admin_setting_heading('slidercountseparator', '', '<hr>');
+  $page->add($setting);
+
+
+  // Enable FAQ.
+  $name = 'theme_boost/faqcount';
+  $title = get_string('faqcount', 'theme_boost');
+  $description = get_string('faqcountdesc', 'theme_boost');
+  $default = 0;
+  $options = array();
+  for ($i = 0; $i < 11; $i++) {
+    $options[$i] = $i;
+  }
+  $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+  $page->add($setting);
+
+  $faqcount = get_config('theme_boost', 'faqcount');
+
+  if ($faqcount > 0) {
+    for ($i = 1; $i <= $faqcount; $i++) {
+      $name = "theme_boost/faqquestion{$i}";
+      $title = get_string('faqquestion', 'theme_boost', $i . '');
+      $setting = new admin_setting_configtext($name, $title, '', '');
+      $page->add($setting);
+
+      $name = "theme_boost/faqanswer{$i}";
+      $title = get_string('faqanswer', 'theme_boost', $i . '');
+      $setting = new admin_setting_confightmleditor($name, $title, '', '');
+      $page->add($setting);
+    }
+
+    $setting = new admin_setting_heading('faqseparator', '', '<hr>');
+    $page->add($setting);
+  }
+
+  $settings->add($page);
+
+
+
+
+  //
     // Advanced settings.
     $page = new admin_settingpage('theme_boost_advanced', get_string('advancedsettings', 'theme_boost'));
 

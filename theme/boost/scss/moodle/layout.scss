@@ -61,7 +61,6 @@
                 max-width: $course-content-maxwidth;
             }
             .footer-popover {
-                max-width: $course-content-maxwidth;
                 width: 100%;
                 margin: 0 auto;
                 @include border-radius();
@@ -190,8 +189,6 @@
 
     // Add some padding for the drawer toggle buttons
     #page.drawers {
-        padding-left: 3rem;
-        padding-right: 3rem;
         .main-inner {
             padding: 1.5rem 0.5rem;
         }

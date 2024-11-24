@@ -26514,7 +26514,7 @@ div.editor_atto_toolbar button .icon {
   height: 61px;
 }
 .navbar.fixed-top .navbar-brand .logo {
-  max-height: calc(60px - (0.25rem * 2));
+  max-height: calc(120px - (0.25rem * 2));
 }
 .navbar.fixed-top .nav-link {
   height: 100%;

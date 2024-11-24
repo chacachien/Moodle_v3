@@ -36,7 +36,7 @@ $CFG->dboptions = array (
 
 // change when deploy //
 #CFG->wwwroot   = 'http://ec2-54-254-161-50.ap-southeast-1.compute.amazonaws.com';
-$CFG->wwwroot   = 'http://localhost:8002';
+$CFG->wwwroot   = 'http://localhost:8080/moodle4113';
 $CFG->dataroot  = __DIR__.'/data/moodledata4113';
 $CFG->admin     = 'admin';
 
@@ -46,5 +46,7 @@ require_once(__DIR__ . '/lib/setup.php');
 
 
 $CFG->cachejs = false;
+$CFG->debug = DEBUG_DEVELOPER;
+$CFG->debugdisplay = 1;
 // There is no php closing tag in this file,
 // it is intentional because it prevents trailing whitespace problems!

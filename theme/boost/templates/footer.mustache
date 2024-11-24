@@ -33,23 +33,57 @@
 }}
 
 <footer id="page-footer" class="footer-popover bg-white">
+  <div class="social-bar">
+    <a href="https://www.facebook.com/chacochii" target="_blank" class="social-link facebook">
+      <i class="fa fa-facebook-f fw"></i>
+    </a>
+    <a href="https://www.youtube.com/@chacachien" target="_blank" class="social-link youtube">
+      <i class="fa fa-youtube fw"></i>
+    </a>
+    <a href="https://github.com/chacachien" target="_blank" class="social-link github">
+      <i class="fa fa-github fw"></i>
+    </a>
+  </div>
+
+  <!-- Main Footer Content -->
+  <div class="footer-content">
+    <!-- About Us Section -->
+    <div class="about-section">
+      <h3>About us</h3>
+      <p>Chúng tôi cung cấp những khóa học chất lượng cùng với sự hỗ trợ mạnh mẽ của AI chatbot. Mang đến cho bạn những trãi nghiệm học tập trực tuyến tuyệt vời.</p>
+    </div>
+
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <img src="{{rootURL}}/moodle4113/theme/boost/pix/logo.jpg" alt="ChaCoChi Logo" />
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3>Contact us</h3>
+      <div class="contact-info">
+        <p><i class="fa fw fa-phone"></i> 0923-544-575</p>
+        <p><i class="fa fw fa-envelope"></i> chacachiene@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="copyright">
+    <p>Copyright © 2024 | Made by Cha Co Chi</p>
+    <p>Powered by Moodle - version 4.1.13</p>
+
+  </div>
+
 
     <div class="footer-content-popover container" data-region="footer-content-popover">
-        {{# output.has_popover_links }}
             <div class="footer-section p-3 border-bottom">
-                {{# output.page_doc_link }}
-                    <div class="footer-support-link">{{{ output.page_doc_link }}}</div>
-                {{/ output.page_doc_link }}
+                    <div class="footer-support-link">aaaa</div>
 
-                {{# output.services_support_link }}
-                    <div class="footer-support-link">{{{ output.services_support_link }}}</div>
-                {{/ output.services_support_link }}
+                    <div class="footer-support-link">bbb</div>
 
-                {{# output.supportemail }}
-                    <div class="footer-support-link">{{{ output.supportemail }}}</div>
-                {{/ output.supportemail }}
+                    <div class="footer-support-link">ccc</div>
             </div>
-        {{/ output.has_popover_links }}
         <div class="footer-section p-3 border-bottom">
             <div class="logininfo">
                 {{{ output.login_info }}}

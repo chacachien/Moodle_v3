@@ -1098,6 +1098,28 @@ class core_course_renderer extends plugin_renderer_base {
         return $content;
     }
 
+
+
+  /**
+   * Get course image URL
+   * @param int $courseid Course ID
+   * @return string Image URL
+   */
+  protected function get_course_image($courseid) {
+    global $CFG;
+
+    $imagepath = "/theme/boost/pix/course/{$courseid}.jpg";
+    $fullpath = $CFG->dirroot . $imagepath;
+
+    // Check if course image exists
+    if (file_exists($fullpath)) {
+      return $CFG->wwwroot . $imagepath;
+    }
+
+    // Return default image if course image not found
+    return $CFG->wwwroot . '/theme/boost/pix/course/default.jpg';
+  }
+
     /**
      * Displays one course in the list of courses.
      *
@@ -1132,6 +1154,15 @@ class core_course_renderer extends plugin_renderer_base {
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
+      // Add course image
+        $imageurl = $this->get_course_image($course->id);
+        $content .= html_writer::start_tag('div', array('class' => 'course-image'));
+        $content .= html_writer::empty_tag('img', array(
+          'src' => $imageurl,
+          'alt' => $course->get_formatted_name(),
+          'class' => 'course-banner'
+        ));
+        $content .= html_writer::end_tag('div');
 
         $content .= html_writer::start_tag('div', array('class' => 'info'));
         $content .= $this->course_name($chelper, $course);
@@ -1140,9 +1171,15 @@ class core_course_renderer extends plugin_renderer_base {
 
         $content .= html_writer::start_tag('div', array('class' => 'content'));
         $content .= $this->coursecat_coursebox_content($chelper, $course);
+
+
         $content .= html_writer::end_tag('div');
 
         $content .= html_writer::end_tag('div'); // .coursebox
+
+
+
+
         return $content;
     }
 
@@ -1230,7 +1267,8 @@ class core_course_renderer extends plugin_renderer_base {
     protected function course_category_name(coursecat_helper $chelper, core_course_list_element $course): string {
         $content = '';
         // Display course category if necessary (for example in search results).
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
+        //if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
+          if(true){
             if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
                 $content .= html_writer::start_tag('div', ['class' => 'coursecat']);
                 $content .= html_writer::tag('span', get_string('category').': ', ['class' => 'font-weight-bold']);
@@ -1277,10 +1315,10 @@ class core_course_renderer extends plugin_renderer_base {
         $content = \html_writer::start_tag('div', ['class' => 'd-flex']);
         $content .= $this->course_overview_files($course);
         $content .= \html_writer::start_tag('div', ['class' => 'flex-grow-1']);
-        $content .= $this->course_summary($chelper, $course);
-        $content .= $this->course_contacts($course);
+        //$content .= $this->course_summary($chelper, $course);
+        //$content .= $this->course_contacts($course);
         $content .= $this->course_category_name($chelper, $course);
-        $content .= $this->course_custom_fields($course);
+        //$content .= $this->course_custom_fields($course);
         $content .= \html_writer::end_tag('div');
         $content .= \html_writer::end_tag('div');
         return $content;

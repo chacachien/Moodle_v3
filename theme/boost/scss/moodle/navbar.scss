@@ -1,17 +1,13 @@
 @mixin hover-navbar {
     border-color: transparent;
-    background-color: $gray-100;
 }
 
 .navbar.fixed-top {
     padding-top: 0;
     padding-bottom: 0;
     box-shadow: none;
-    border-bottom: $gray-300 1px solid;
     align-items: stretch;
     height: $navbar-height + 1px;
-    background-color: $primary !important;
-    color: white;
 
     .navbar-brand {
         .logo {
@@ -183,57 +179,147 @@
     min-width: 100px;
     color: white;
 }
+//old version
+//.primary-navigation {
+//    .nav {
+//        &.more-nav {
+//            .nav-item {
+//                a {
+//                    display: flex;
+//                    align-items: center;
+//                    justify-content: center;
+//                    text-align: center;
+//                    padding: 8px 16px;
+//                    min-height: 100%;
+//                    white-space: nowrap;
+//                    font-weight: bolder;
+//
+//                }
+//                &::after {
+//                    content: '';
+//                    position: absolute;
+//                    bottom: 0;
+//                    left: 50%;
+//                    width: 0;
+//                    height: 2px;
+//                    transition: all 0.3s ease;
+//                    transform: translateX(-50%);
+//                }
+//
+//                &:hover {
+//                    background-color: $pink;
+//                    &::after {
+//                        width: 100%;
+//                    }
+//                }
+//
+//                // Optional: Active state
+//                &.active {
+//                    background-color: $cyan !important;
+//
+//                    &::after {
+//                        width: 100%;
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 .primary-navigation {
-    .nav {
-        &.more-nav {
-            .nav-item {
-                a {
-                    // Center text both horizontally and vertically
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
+  .nav-item {
+    .nav-link {
+      color: white !important;
+      position: relative;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: bolder;  // Lighter font weight
 
-                    // Add some padding for better clickability
-                    padding: 8px 16px;
+      // Hover effect
+      &:hover {
+        color: rgba(255, 255, 255, 0.8) !important;
 
-                    // Optional: ensure consistent height
-                    min-height: 100%;
-
-                    // Optional: prevent text wrapping
-                    white-space: nowrap;
-
-                    font-weight: bolder;
-                }
-                &::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    width: 0;
-                    height: 2px;
-                    background-color: $indigo;
-                    transition: all 0.3s ease;
-                    transform: translateX(-50%);
-                }
-
-                &:hover {
-                    background-color: $pink;
-
-                    &::after {
-                        width: 100%;
-                    }
-                }
-
-                // Optional: Active state
-                &.active {
-                    background-color: $cyan;
-
-                    &::after {
-                        width: 100%;
-                    }
-                }
-            }
+        .nav-underline {
+          transform: scaleX(1);
         }
+      }
+
+      // Active state
+      &.active {
+        color: white !important;
+
+        .nav-underline {
+          transform: scaleX(1);
+        }
+      }
+
+      // Underline element
+      .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        height: 2px;
+        background-color: white;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: center;
+      }
     }
+  }
+
+  .nav {
+    justify-content: center;  // Center the navigation items
+    a {
+      text-align: center;
+      justify-content: center;
+      font-weight: bolder;
+    }
+  }
+
+  // Hide dropdown arrow for "More" menu
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  // Style for the dropdown menu
+  .dropdown-menu {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    backdrop-filter: blur(10px);
+
+    .dropdown-item {
+      color: white;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+
+// Media query for responsive design
+@media (max-width: 768px) {
+  .primary-navigation {
+    .nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Remove default Bootstrap styles
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem !important;
+}
+
+// Fix any potential background issues
+.navigation.observed {
+  background: transparent !important;
 }

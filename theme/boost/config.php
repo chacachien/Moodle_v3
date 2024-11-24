@@ -26,11 +26,10 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . '/lib.php');
 global $CFG;
-
 global $PAGE;
 global $USER;
 
- $CFG->cachejs = false;
+$CFG->cachejs = false;
 $PAGE->requires->js_call_amd('theme_boost/widget', 'init',[[
 'userId' => $USER->id,
 'courseId' => $PAGE->course->id
@@ -78,7 +77,7 @@ $THEME->layouts = [
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'drawers.php',
+        'file' => 'frontpage.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
