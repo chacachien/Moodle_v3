@@ -30,12 +30,16 @@ global $PAGE;
 global $USER;
 
 $CFG->cachejs = false;
-$PAGE->requires->js_call_amd('theme_boost/widget', 'init',[[
-'userId' => $USER->id,
-'courseId' => $PAGE->course->id
-// params passed in the module init()
+//$PAGE->requires->js_call_amd('theme_boost/widget', 'init',[[
+//'userId' => $USER->id,
+//'courseId' => $PAGE->course->id
+//// params passed in the module init()
+//]]);
+$PAGE->requires->js_call_amd('theme_boost/widget_iframe', 'init', [[
+  'userId' => $USER->id,
+  'courseId' => $PAGE->course->id,
+  'wwwroot' => $CFG->wwwroot
 ]]);
-
 $THEME->name = 'boost';
 $THEME->sheets = [];
 $THEME->editor_sheets = [];

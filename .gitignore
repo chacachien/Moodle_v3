@@ -1,5 +1,6 @@
 ﻿# Moodle specific files
 config.php
+
 /admin/cli/cron.php
 /admin/tool/installaddon/cli/
 config-dist.php
