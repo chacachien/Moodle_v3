@@ -50,6 +50,11 @@ $breadcrumb-divider-rtl: "◀" !default;
 @import "moodle/tertiarynavigation";
 
 
+#mooveslideshow{
+  width: 100% !important;
+  padding: 0 !important;
+}
+
 #frontpage-available-course-list {
   padding: 2rem;
 
@@ -673,4 +678,11 @@ $transition: all 0.3s ease;
 
 #logoimage{
   max-height: 300px;
+}
+
+.coursecat{
+  a{
+    text-decoration: none;
+    color: #9366FC;
+  }
 }

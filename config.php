@@ -36,14 +36,13 @@ $CFG->dboptions = array (
 
 // change when deploy //
 #CFG->wwwroot   = 'http://ec2-54-254-161-50.ap-southeast-1.compute.amazonaws.com';
-$CFG->wwwroot   = 'http://localhost:8080/moodle4113';
+$CFG->wwwroot   = 'http://localhost:8002';
 $CFG->dataroot  = __DIR__.'/data/moodledata4113';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
 
 require_once(__DIR__ . '/lib/setup.php');
-
 
 $CFG->cachejs = false;
 $CFG->debug = DEBUG_DEVELOPER;
