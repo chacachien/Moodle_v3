@@ -475,8 +475,11 @@
                 </div>
               </div>
             </div>
+<!--            <div class="chatbot-image">-->
+<!--              <img src="theme/boost/pix/passive.png" alt="Passive Chatbot">-->
+<!--            </div>-->
             <div class="chatbot-image">
-              <img src="theme/boost/pix/passive.png" alt="Passive Chatbot">
+              <div id="passive-bot-animation"></div>
             </div>
           </div>
         </div>
@@ -637,6 +640,13 @@
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: '{{{config.wwwroot}}}/theme/boost/pix/animations/active-bot.json'
+  path: '{{{config.wwwroot}}}/theme/boost/pix/animations/active.json'
+  });
+  var animation_1 = lottie.loadAnimation({
+  container: document.getElementById('passive-bot-animation'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '{{{config.wwwroot}}}/theme/boost/pix/animations/passive.json'
   });
 {{/js}}
