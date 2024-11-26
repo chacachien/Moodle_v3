@@ -60,20 +60,25 @@
   <nav id="nav-frontpage" class="navbar fixed-top navbar-expand-md">
     <div class="container"> <!-- Added container -->
       <!-- Mobile Toggle -->
+        <div class="navbar-button">
       <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+        </span>
       </button>
-
+        </div>
       <!-- Logo -->
-      <a href="http://localhost:8080/moodle4113/" class="navbar-brand">
-        <img src="theme/boost/pix/logo_transparent.png" alt="Cha" class="logo">
-      </a>
+        <div class="navbar-logo">
 
+
+          <a href="/" class="navbar-brand">
+            <img src="theme/boost/pix/logo_transparent.png" alt="Cha" class="logo">
+          </a>
+        </div>
       <!-- Navigation Items -->
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link nav-hover" href="http://localhost:8080/moodle4113/"
+            <a class="nav-link nav-hover" href="/"
                style="
                   color: white;
                   position: relative;
@@ -86,7 +91,7 @@
                  text-align: center;     /* Added for backup */
                "
             >
-              Home
+              Trang chủ
               <div class="nav-underline"
                    style="
                         position: absolute;
@@ -108,9 +113,14 @@
                   position: relative;
                   padding: 10px 20px;
                   text-decoration: none;
+                                           display: flex;           /* Added */
+                 justify-content: center; /* Added */
+                 align-items: center;     /* Added */
+                 width: 100%;            /* Added */
+                 text-align: center;     /* Added for backup */
                "
             >
-              Courses
+              Khóa học
               <div class="nav-underline"
                    style="
                         position: absolute;
@@ -132,6 +142,11 @@
                   position: relative;
                   padding: 10px 20px;
                   text-decoration: none;
+                  display: flex;           /* Added */
+                 justify-content: center; /* Added */
+                 align-items: center;     /* Added */
+                 width: 100%;            /* Added */
+                 text-align: center;     /* Added for backup */
                "
             >
               Chatbot
@@ -168,7 +183,7 @@
              onmouseover="this.style.background='white'; this.style.color='#9366FC'"
              onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'"
           >
-            Log in
+            Đăng nhập
           </a>
         </div>
       </div>
@@ -282,7 +297,7 @@
                       </div>
                       <div class="col ps-3">
                         <h5>Học tập cá nhân hóa</h5>
-                        <div class="box-content">Chatbot thông minh mang - Dễ dàng đặt câu hỏi, nhận câu trả lời nhanh và tiếp cận nội dung phù hợp với cấp độ học tập của bạn.</div>
+                        <div class="box-content">Chatbot thông minh giúp chúng ta dễ dàng đặt câu hỏi, nhận câu trả lời nhanh và tiếp cận nội dung phù hợp.</div>
                       </div>
                     </div>
                   </div>
@@ -314,7 +329,7 @@
             <div class="col-xl-5 col-lg-5 col-md-10">
               <div class="sectionheading">
                 <h2>Những con số nổi bật</h2>
-                <p>Đây là những số liệu thống kê về sự phát triển của nền tảng học trực tuyến Cha Co Chi .</p>
+                <p>Đây là những số liệu thống kê về sự phát triển trong giai đoạn vừa khởi chạy của nền tảng học trực tuyến Cha Co Chi .</p>
               </div>
             </div>
             <div class="col-xl-6 col-lg-7 col-md-10 offset-xl-1">
@@ -481,7 +496,7 @@
         <div class="footer-content">
           <!-- About Us Section -->
           <div class="about-section">
-            <h3>About us</h3>
+            <h3>Về chúng tôi</h3>
             <p>Chúng tôi cung cấp những khóa học chất lượng cùng với sự hỗ trợ mạnh mẽ của AI chatbot. Mang đến cho bạn những trãi nghiệm học tập trực tuyến tuyệt vời.</p>
           </div>
 
@@ -492,10 +507,10 @@
 
           <!-- Contact Section -->
           <div class="contact-section">
-            <h3>Contact us</h3>
+            <h3>Liên hệ</h3>
             <div class="contact-info">
-              <p><i class="fa fw fa-phone"></i> 0923-544-575</p>
-              <p><i class="fa fw fa-envelope"></i> chacachiene@gmail.com</p>
+              <p><i class="fa fw fa-phone"></i> 0812-433-464</p>
+              <p><i class="fa fw fa-envelope"></i> phat.nguyennpk1311@hcmut.edu.vn</p>
             </div>
           </div>
         </div>

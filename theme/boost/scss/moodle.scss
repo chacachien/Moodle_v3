@@ -92,6 +92,7 @@ $breadcrumb-divider-rtl: "◀" !default;
       .info {
         padding: 1.5rem;
         min-height: 118px;
+        margin-top: 1rem;
         .coursename {
           margin: 0 0 1rem 0;
 
@@ -371,15 +372,85 @@ $light-text: #666;
   .nav-link:focus {
     color: white !important;
   }
-}
-.navbar.fixed-top {
-  .navbar-brand {
-    .logo {
-      max-height: 10rem;
-    }
 
+}
+@media (max-width: 2561px) {
+  .navbar.fixed-top {
+    .navbar-brand {
+      .logo {
+        max-height: 9rem;
+      }
+    }
   }
 }
+@media (max-width: 767px) {
+  .navbar.fixed-top {
+    .navbar-brand {
+      .logo {
+        max-height: 6rem;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  #nav-frontpage {
+    .container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .logo {
+      max-height: 6rem;
+      overflow: hidden;
+    }
+
+
+    .navbar-logo {
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      display: flex;
+    }
+
+    .navbar-collapse {
+      background: #9366FC;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .navbar-nav {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .nav-link {
+      padding: 0.75rem 0;
+    }
+
+    .nav-auth {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    .navbar-toggler {
+      border: 2px solid white;
+      padding: 0.5rem;
+      font-size: 1rem;
+
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+}
+
+
 
 .nav-underline{
   position: absolute;
@@ -391,8 +462,6 @@ $light-text: #666;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-
-
 .input-group {
   .text-secondary {
     color: rgba(255, 255, 255, 0.9) !important;

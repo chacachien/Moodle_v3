@@ -40,6 +40,7 @@ $PAGE->requires->js_call_amd('theme_boost/widget_iframe', 'init', [[
   'courseId' => $PAGE->course->id,
   'wwwroot' => $CFG->wwwroot
 ]]);
+
 $THEME->name = 'boost';
 $THEME->sheets = [];
 $THEME->editor_sheets = [];

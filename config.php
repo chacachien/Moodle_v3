@@ -36,7 +36,7 @@ $CFG->dboptions = array (
 
 // change when deploy //
 #CFG->wwwroot   = 'http://ec2-54-254-161-50.ap-southeast-1.compute.amazonaws.com';
-$CFG->wwwroot   = 'http://localhost:8080';
+$CFG->wwwroot   = 'http://localhost:8002';
 
 $CFG->dataroot  = __DIR__.'/data/moodledata4113';
 $CFG->admin     = 'admin';
