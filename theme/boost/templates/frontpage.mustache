@@ -443,8 +443,13 @@
                 </div>
               </div>
             </div>
+<!--            <div class="chatbot-image">-->
+<!--              <img src="theme/boost/pix/active.jpeg" alt="Active Chatbot">-->
+<!--            </div>-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
             <div class="chatbot-image">
-              <img src="theme/boost/pix/active.jpeg" alt="Active Chatbot">
+              <div id="active-bot-animation"></div>
             </div>
           </div>
 
@@ -625,3 +630,13 @@
 {{{ output.standard_end_of_body_html }}}
 </body>
 
+
+{{#js}}
+  var animation = lottie.loadAnimation({
+  container: document.getElementById('active-bot-animation'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '{{{config.wwwroot}}}/theme/boost/pix/animations/active-bot.json'
+  });
+{{/js}}
