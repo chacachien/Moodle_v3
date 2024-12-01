@@ -19,6 +19,7 @@
     "eslint-plugin-jsdoc": "^48.0.4",
     "eslint-plugin-promise": "6.0.0",
     "fb-watchman": "^2.0.2",
+    "findup-sync": "^5.0.0",
     "gherkin-lint": "^4.2.2",
     "glob": "^10.3.10",
     "grunt": "^1.6.1",

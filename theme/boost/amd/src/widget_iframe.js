@@ -236,11 +236,11 @@ define(['jquery'], function($) {
                     position: fixed;
                     right: 20px;
                     bottom: 20px;
-                    z-index: 1000;
+                    z-index: 9999;
                     width: 400px;
                     height: 700px;
                     background: transparent !important;
-          display: none;
+                    display: none;
         `
       });
 
@@ -311,6 +311,173 @@ define(['jquery'], function($) {
           if (!isOpen) {
             launcherButton.css('animation', 'pulse 2s infinite');
           }
+        }
+      });
+      // Initialize Pusher
+
+
+      // function showNotification() {
+      //   console.log("NOTI HERE");
+      //   const notification = $('<div>').attr({
+      //     'class': 'fixed top-5 right-5 flex items-center gap-3 rounded-lg bg-white p-4 shadow-lg',
+      //     'style': 'z-index: 10000; min-width: 300px;'
+      //   }).html(`
+      //     <div class="flex-shrink-0">...</div>
+      //     <div>
+      //       <h5 class="font-medium text-gray-900">New Message</h5>
+      //       <p class="text-sm text-gray-600">A new message has arrived!</p>
+      //     </div>
+      //   `);
+      //
+      //   $('body').append(notification);
+      //
+      //   // Add click handler
+      //   notification.on('click', function() {
+      //     $(this).remove();
+      //     if (!isOpen) {
+      //       launcherButton.trigger('click');
+      //     }
+      //   });
+      // }
+      // // Create and load Pusher script
+      // const script = document.createElement('script');
+      // script.src = 'https://js.pusher.com/8.0.1/pusher.min.js';
+      //
+      // script.onload = function() {
+      //   // Initialize Pusher after script is loaded
+      //   const pusher = new window.Pusher('9de03240cc8a5c22c658', {
+      //     cluster: 'ap1',
+      //     debug: true
+      //   });
+      //
+      //   // Your channel subscription code here
+      //   const channel = pusher.subscribe('moodle-remind');
+      //   channel.bind(config.userId, showNotification);
+      // };
+      //
+      // document.head.appendChild(script);
+
+      const notification = $('<div>').attr({
+        'id': 'widget-notification',
+        'style': `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 10000;
+          display: none;
+        `
+      });
+
+      $('body').append(notification);
+
+      // Listen for messages from widget
+      window.addEventListener('message', function(event) {
+        if (event.data.type === 'NOTIFICATION') {
+          // Show notification
+          notification.html(`
+<style>
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-radius: 1rem;
+      background-color: white;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-width: 400px;
+    }
+
+    .icon-container {
+      flex-shrink: 0;
+    }
+
+    .icon-bg {
+      background-color: rgb(243 232 255);
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+    }
+
+    .icon {
+      height: 1.75rem;
+      width: 1.75rem;
+      color: rgb(126 58 242);
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .title {
+      margin-bottom: 0.25rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgb(15 23 42);
+    }
+
+    .message {
+      font-size: 0.875rem;  
+      color: rgb(102 110 117);
+    }
+
+    .close-btn {
+      flex-shrink: 0;
+      border-radius: 0.5rem;
+      padding: 0.5rem;  
+      color: rgb(155 163 175);
+    }
+
+    .close-btn:hover {
+      background-color: rgb(248 250 252);
+      color: rgb(102 110 117);
+    }
+
+    .close-icon {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  </style>
+          <div class="notification">
+              <div class="icon-container">
+                <div class="icon-bg">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="content">
+                <h5 class="title">New Message</h5>
+                <p class="message">A new message has arrived!</p>
+              </div>
+              <button class="close-btn">
+                <svg class="close-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+          `).fadeIn();
+
+          // Add pulse animation to launcher button
+          if (!isOpen) {
+            launcherButton.css('animation', 'pulse 2s infinite');
+          }
+        }
+      });
+
+      // Handle notification click
+      notification.on('click', function() {
+        $(this).fadeOut();
+        if (!isOpen) {
+          launcherButton.trigger('click');
         }
       });
 
