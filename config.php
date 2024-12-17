@@ -24,6 +24,7 @@ $CFG = new stdClass();
 $CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'moodle.cd2wy4iagdv9.ap-southeast-1.rds.amazonaws.com';
+#$CFG->dbhost  = 'localhost';
 $CFG->dbname    = 'moodle';
 $CFG->dbuser    = 'postgres';
 $CFG->dbpass    = '1307x2Npk';
@@ -36,7 +37,7 @@ $CFG->dboptions = array (
 
 // change when deploy //
 #CFG->wwwroot   = 'http://ec2-54-254-161-50.ap-southeast-1.compute.amazonaws.com';
-$CFG->wwwroot   = 'http://localhost:8002';
+$CFG->wwwroot   = 'http://localhost:8080';
 
 $CFG->dataroot  = __DIR__.'/data/moodledata4113';
 $CFG->admin     = 'admin';
@@ -45,8 +46,8 @@ $CFG->directorypermissions = 0777;
 
 require_once(__DIR__ . '/lib/setup.php');
 
-$CFG->cachejs = false;
-$CFG->debug = DEBUG_DEVELOPER;
-$CFG->debugdisplay = 1;
+//$CFG->cachejs = false;
+//$CFG->debug = DEBUG_DEVELOPER;
+//$CFG->debugdisplay = 1;
 // There is no php closing tag in this file,
 // it is intentional because it prevents trailing whitespace problems!

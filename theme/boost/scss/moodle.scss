@@ -1187,6 +1187,16 @@ a{
     text-decoration: none;
   }
 }
+#widget-iframe-container {
+  z-index: 9999 !important;
+}
+
+@media (max-width: 480px) {
+  #widget-iframe-container {
+      right: 0 !important;
+      width: -webkit-fill-available !important;
+  }
+}
 .coursebox .content .coursecat{
   margin: 0 !important;
 }
