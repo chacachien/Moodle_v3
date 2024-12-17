@@ -1105,12 +1105,39 @@ class core_course_renderer extends plugin_renderer_base {
    * @param int $courseid Course ID
    * @return string Image URL
    */
-  protected function get_course_image($courseid) {
+  protected function get_course_image($course) {
     global $CFG;
 
-    $imagepath = "/theme/boost/pix/course/{$courseid}.jpg";
-    $fullpath = $CFG->dirroot . $imagepath;
 
+    $imagepath = "";
+    foreach ($course->get_course_overviewfiles() as $file) {
+        $isimage = $file->is_valid_image();
+        $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
+            '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+            $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
+        if ($isimage) {
+            $contentimages .= html_writer::tag('div',
+                html_writer::empty_tag('img', ['src' => $url, 'alt' => '']),
+                ['class' => 'courseimage']);
+                              $imagepath = $url;
+              return $imagepath;
+        } else {
+            $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
+            $filename = html_writer::tag('span', $image, ['class' => 'fp-icon']).
+                html_writer::tag('span', $file->get_filename(), ['class' => 'fp-filename']);
+            $contentfiles .= html_writer::tag('span',
+                html_writer::link($url, $filename),
+                ['class' => 'coursefile fp-filename-icon text-break']);
+              $imagepath = $url;
+              return $imagepath;
+        }
+    }
+
+    //$imagepath = $url;
+   // $imagepath = "/theme/boost/pix/course/{$courseid}.jpg";
+
+    //$fullpath = $CFG->dirroot . $imagepath;
+    $fullpath = $imagepath;
     // Check if course image exists
     if (file_exists($fullpath)) {
       return $CFG->wwwroot . $imagepath;
@@ -1155,7 +1182,7 @@ class core_course_renderer extends plugin_renderer_base {
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
       // Add course image
-        $imageurl = $this->get_course_image($course->id);
+        $imageurl = $this->get_course_image($course);
         $content .= html_writer::start_tag('div', array('class' => 'course-image'));
         $content .= html_writer::empty_tag('img', array(
           'src' => $imageurl,
@@ -1313,7 +1340,8 @@ class core_course_renderer extends plugin_renderer_base {
             $course = new core_course_list_element($course);
         }
         $content = \html_writer::start_tag('div', ['class' => 'd-flex']);
-        $content .= $this->course_overview_files($course);
+        //$content .=
+        //$this->course_overview_files($course);
         $content .= \html_writer::start_tag('div', ['class' => 'flex-grow-1']);
         //$content .= $this->course_summary($chelper, $course);
         //$content .= $this->course_contacts($course);

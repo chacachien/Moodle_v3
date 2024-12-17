@@ -90,9 +90,10 @@ $breadcrumb-divider-rtl: "◀" !default;
       }
 
       .info {
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
         min-height: 118px;
-        margin-top: 1rem;
+        margin-top: 3rem !important;
+
         .coursename {
           margin: 0 0 1rem 0;
 
@@ -1186,4 +1187,9 @@ a{
     text-decoration: none;
   }
 }
-
+.coursebox .content .coursecat{
+  margin: 0 !important;
+}
+.info {
+  margin-top: 3rem !important;
+}
